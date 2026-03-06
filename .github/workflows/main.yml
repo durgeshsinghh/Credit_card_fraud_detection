@@ -24,4 +24,5 @@ jobs:
 
       - name: Run DVC Pipeline
         run: |
+          cd credit_card_fraud_detection
           dvc repro

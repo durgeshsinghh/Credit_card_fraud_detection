@@ -1,6 +1,4 @@
-
-
-# external requirements click
+click
 Sphinx
 coverage
 awscli

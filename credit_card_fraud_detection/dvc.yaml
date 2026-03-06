@@ -12,19 +12,20 @@ stages:
       - data/processed
 
   train_model:
-  cmd: python src/models/train_model.py data/processed
-  deps:
-    - src/models/train_model.py
-    - data/processed
-  params:
-    - train_model.seed
-    - train_model.n_estimators
-    - train_model.max_depth
-  outs:
-    - models/model.joblib
+    cmd: python src/models/train_model.py data/processed
+    deps:
+      - src/models/train_model.py
+      - data/processed
+    params:
+      - train_model.seed
+      - train_model.n_estimators
+      - train_model.max_depth
+    outs:
+      - models/model.joblib
 
   visualize:
     cmd: python src/visualization/visualize.py data/processed
     deps:
       - src/visualization/visualize.py
       - models/model.joblib
+      - data/processed

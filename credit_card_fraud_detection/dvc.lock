@@ -36,20 +36,25 @@ stages:
     params:
       params.yaml:
         train_model.max_depth: 6
-        train_model.n_estimators: 10
-        train_model.seed: 2023
+        train_model.n_estimators: 8
+        train_model.seed: 2000
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: f51e3cccfa1821434864427db9103a0e
-      size: 53353
+      md5: 60af215db13401592465988e1014d3d5
+      size: 44073
   visualize:
     cmd: python src/visualization/visualize.py data/processed
     deps:
+    - path: data/processed
+      hash: md5
+      md5: 10fc15abf8d7371565c71fccd96caf24.dir
+      size: 151102527
+      nfiles: 2
     - path: models/model.joblib
       hash: md5
-      md5: f51e3cccfa1821434864427db9103a0e
-      size: 53353
+      md5: 60af215db13401592465988e1014d3d5
+      size: 44073
     - path: src/visualization/visualize.py
       hash: md5
       md5: 536c0375a7d4c2174445aad837348568
